@@ -13,7 +13,7 @@ public class PlayerControls_Script : MonoBehaviour
 
     public bool colorCheck = false;
 
-    public float colorTime = 2f;
+    public float colorTime = 5f;
 
     GameObject[] noColorList;
 
@@ -35,32 +35,25 @@ public class PlayerControls_Script : MonoBehaviour
         if(horizontal != 0){
             rb.velocity = movement;
         }
-
-
-        if(Input.GetButton("Jump") && IsGrounded()){
+        if(Input.GetButton("Jump") && IsGrounded() ){
             rb.AddForce(new Vector2(movement.x, (movement.y + jumpforce) * Time.fixedDeltaTime), ForceMode2D.Impulse);
         }
-        
-        // Debug.DrawLine(character.bounds.center,Vector2.down * (character.bounds.extents.y+0.1f) ,Color.blue,(float) 10000000);
+
     }
 
-    void FixedUpdate()
-    {
-        if (Input.GetKey(KeyCode.Q))
-        {
+    void OnTriggerEnter2D(Collider2D other){
+        if(other.gameObject.CompareTag("Fairy")){
             StartCoroutine(takeFairy());
         }
     }
 
-    public IEnumerator takeFairy()
-    {
+    public IEnumerator takeFairy(){
         changeColor(false);
         yield return new WaitForSeconds(colorTime);
         changeColor(true);
     }
 
-    public void changeColor(bool rBool)
-    {
+    public void changeColor(bool rBool){
 
         foreach (var i in noColorList)
         {

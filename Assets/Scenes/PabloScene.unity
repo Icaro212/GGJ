@@ -134,9 +134,9 @@ GameObject:
   - component: {fileID: 1040631571}
   - component: {fileID: 1040631570}
   - component: {fileID: 1040631569}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Square (2)
-  m_TagString: floor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
   character: {fileID: 0}
   layerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 64
   jumpforce: 35
 --- !u!50 &1444115280
 Rigidbody2D:
@@ -384,9 +384,9 @@ GameObject:
   - component: {fileID: 1600973686}
   - component: {fileID: 1600973685}
   - component: {fileID: 1600973684}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Square
-  m_TagString: floor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -493,9 +493,9 @@ GameObject:
   - component: {fileID: 1753840081}
   - component: {fileID: 1753840080}
   - component: {fileID: 1753840079}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Square (3)
-  m_TagString: floor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
