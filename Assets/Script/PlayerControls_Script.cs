@@ -30,9 +30,10 @@ public class PlayerControls_Script : MonoBehaviour
         
     }
 
-    bool IsGrounded(){
-        Physics2D.Raycast(character.bounds.center,Vector2.down, character.bounds.extents.y+0.1f);
-    }
+    // bool IsGrounded(){
+    //     Physics2D.Raycast(character.bounds.center,Vector2.down, character.bounds.extents.y+0.1f);
+    //     Debug.DrawLine(character.bounds.center,Vector2.down,Color.blue,(float) 10000000);
+    // }
 
 
 }
