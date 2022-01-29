@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             GameManager.instance.Awake();
         }
-        else
+        else 
         {
             if (sc != "Exit")
             {
@@ -69,6 +69,5 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-
 }
 
