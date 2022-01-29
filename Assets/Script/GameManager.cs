@@ -59,7 +59,6 @@ public class GameManager : MonoBehaviour
     }
     void OnDisable()
     {
-        Debug.Log("OnDisable");
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
