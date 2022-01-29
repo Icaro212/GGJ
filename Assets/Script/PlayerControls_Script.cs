@@ -6,10 +6,10 @@ public class PlayerControls_Script : MonoBehaviour
 {
     
     public Rigidbody2D rb;
-
     public float speed;
-
     public Collider2D character;
+    public LayerMask layerMask;
+    public float jumpforce;
 
     void Start(){
         rb=GetComponent<Rigidbody2D>();
@@ -20,20 +20,27 @@ public class PlayerControls_Script : MonoBehaviour
     
     void Update(){
         float horizontal = Input.GetAxis("Horizontal");
+        Vector2 movement = new Vector2 (horizontal * speed * Time.fixedDeltaTime, rb.velocity.y);
         if(horizontal != 0){
-            rb.velocity = new Vector2 (horizontal * speed * Time.fixedDeltaTime, rb.velocity.y);
+            rb.velocity = movement;
         }
 
-        if(Input.GetButton("Jump")){
-            rb.AddForce(new Vector2(rb.velocity.x, (float) 0.8) ,ForceMode2D.Impulse);
+        if(Input.GetButton("Jump") && IsGrounded()){
+            rb.AddForce(new Vector2(movement.x, (movement.y + jumpforce) * Time.fixedDeltaTime), ForceMode2D.Impulse);
         }
+
         
+        // Debug.DrawLine(character.bounds.center,Vector2.down * (character.bounds.extents.y+0.1f) ,Color.blue,(float) 10000000);
     }
 
-    // bool IsGrounded(){
-    //     Physics2D.Raycast(character.bounds.center,Vector2.down, character.bounds.extents.y+0.1f);
-    //     Debug.DrawLine(character.bounds.center,Vector2.down,Color.blue,(float) 10000000);
-    // }
+    bool IsGrounded(){
+        RaycastHit2D rayCastHit=Physics2D.Raycast(character.bounds.center,Vector2.down, character.bounds.extents.y+0.1f, layerMask);
+        if(rayCastHit.collider == null){
+            return false;
+        }else{
+            return true;
+        };
+    }
 
 
 }
