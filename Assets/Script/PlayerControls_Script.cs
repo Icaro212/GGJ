@@ -35,38 +35,38 @@ public class PlayerControls_Script : MonoBehaviour
         if(horizontal != 0){
             rb.velocity = movement;
         }
-        
         if(Input.GetButton("Jump") && IsGrounded() ){
             rb.AddForce(new Vector2(movement.x, (movement.y + jumpforce) * Time.fixedDeltaTime), ForceMode2D.Impulse);
         }
 
     }
 
-    void FixedUpdate()
-    {
-        if (Input.GetKey(KeyCode.Q))
-        {
+    void OnTriggerEnter2D(Collider2D other){
+        if(other.gameObject.CompareTag("Fairy")){
+            Debug.Log("Hellow there");
             StartCoroutine(takeFairy());
         }
     }
 
-    public IEnumerator takeFairy()
-    {
+    void FixedUpdate(){
+        if (Input.GetKey(KeyCode.Q)){
+            StartCoroutine(takeFairy());
+        }
+    }
+
+    public IEnumerator takeFairy(){
         changeColor(false);
         yield return new WaitForSeconds(colorTime);
         changeColor(true);
     }
 
-    public void changeColor(bool rBool)
-    {
+    public void changeColor(bool rBool){
 
-        foreach (var i in noColorList)
-        {
+        foreach (var i in noColorList){
             i.GetComponent<SpriteRenderer>().enabled = rBool;
         }
 
-        foreach (var b in colorList)
-        {
+        foreach (var b in colorList){
             b.GetComponent<SpriteRenderer>().enabled = !rBool; ;
         }
     }
