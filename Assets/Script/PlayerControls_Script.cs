@@ -24,13 +24,11 @@ public class PlayerControls_Script : MonoBehaviour
         if(horizontal != 0){
             rb.velocity = movement;
         }
-
+        
         if(Input.GetButton("Jump") && IsGrounded()){
             rb.AddForce(new Vector2(movement.x, (movement.y + jumpforce) * Time.fixedDeltaTime), ForceMode2D.Impulse);
         }
 
-        
-        // Debug.DrawLine(character.bounds.center,Vector2.down * (character.bounds.extents.y+0.1f) ,Color.blue,(float) 10000000);
     }
 
     bool IsGrounded(){
