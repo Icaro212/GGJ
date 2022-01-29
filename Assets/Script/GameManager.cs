@@ -42,11 +42,18 @@ public class GameManager : MonoBehaviour
     {
         if (sc == ""){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            // Start();
         }
         else{
             SceneManager.LoadScene(sc);
         }
     }
 
-    
+    void OnDestroy()
+    {
+       if(GameManager.instance.stateColor ) 
+       {
+        GameManager.instance.stateColor = false;
+       }
+    }
 }
