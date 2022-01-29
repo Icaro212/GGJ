@@ -21,10 +21,7 @@ public class GameManager : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
-    }
 
-    private void Start()
-    {
         noColorList = GameObject.FindGameObjectsWithTag("noColor");
 
         colorList = GameObject.FindGameObjectsWithTag("color");
@@ -33,6 +30,11 @@ public class GameManager : MonoBehaviour
         {
             b.SetActive(false);
         }
+    }
+
+    private void Start()
+    {
+        
     }
     public void ChangeScene(string sc)
     {
