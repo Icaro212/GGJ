@@ -48,7 +48,8 @@ public class GameManager : MonoBehaviour
 
     public void ChangeScene(string sc)
     {
-        if (sc == ""){
+        if (sc == "")
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             GameManager.instance.Awake();
         }
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
             {
                 Application.Quit();
             };
+        }
     }
     void OnDisable()
     {
