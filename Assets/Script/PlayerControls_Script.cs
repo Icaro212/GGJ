@@ -59,12 +59,12 @@ public class PlayerControls_Script : MonoBehaviour
 
     public void changeColor(bool rBool)
     {
-        
+
         foreach (var i in noColorList)
         {
             i.GetComponent<SpriteRenderer>().enabled = rBool;
         }
-       
+
         foreach (var b in colorList)
         {
             b.GetComponent<SpriteRenderer>().enabled = !rBool; ;
@@ -79,6 +79,5 @@ public class PlayerControls_Script : MonoBehaviour
         };
 
     }
-
 
 }
