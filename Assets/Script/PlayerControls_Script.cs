@@ -13,7 +13,7 @@ public class PlayerControls_Script : MonoBehaviour
 
     public bool colorCheck = false;
 
-    public float colorTime = 2f;
+    public float colorTime = 5f;
 
     GameObject[] noColorList;
 
@@ -43,13 +43,6 @@ public class PlayerControls_Script : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.CompareTag("Fairy")){
-            Debug.Log("Hellow there");
-            StartCoroutine(takeFairy());
-        }
-    }
-
-    void FixedUpdate(){
-        if (Input.GetKey(KeyCode.Q)){
             StartCoroutine(takeFairy());
         }
     }
