@@ -24,7 +24,7 @@ public class PlayerControls_Script : MonoBehaviour
             rb.velocity = new Vector2 (horizontal * speed * Time.fixedDeltaTime, rb.velocity.y);
         }
 
-        if(Input.GetButton("Jump") && IsGrounded()){
+        if(Input.GetButton("Jump")){
             rb.AddForce(new Vector2(rb.velocity.x, (float) 0.8) ,ForceMode2D.Impulse);
         }
         
