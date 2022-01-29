@@ -19,6 +19,8 @@ public class PlayerControls_Script : MonoBehaviour
 
     GameObject[] colorList;
 
+    GameObject[] fairyList;
+
     void Start(){
         rb=GetComponent<Rigidbody2D>();
         character=GetComponent<CapsuleCollider2D>();
@@ -26,6 +28,7 @@ public class PlayerControls_Script : MonoBehaviour
 
         noColorList = GameManager.instance.noColorList;
         colorList = GameManager.instance.colorList;
+        fairyList= GameManager.instance.fairyList;
     }
 
     
@@ -65,6 +68,10 @@ public class PlayerControls_Script : MonoBehaviour
             b.SetActive(!rBool) ;
         }
 
+
+        foreach(var j in fairyList){
+            j.SetActive(rBool);
+        }
 
     }
     bool IsGrounded(){
