@@ -42,6 +42,12 @@ public class PlayerControls_Script : MonoBehaviour
             rb.AddForce(new Vector2(movement.x, (movement.y + jumpforce) * Time.fixedDeltaTime), ForceMode2D.Impulse);
         }
 
+        if(Input.GetButton("Cancel")){
+            GameManager.instance.pause();
+            Debug.Log("Time will continued now!");
+            // GameManager.instance.resume();
+        }
+
     }
 
     void OnTriggerEnter2D(Collider2D other){
