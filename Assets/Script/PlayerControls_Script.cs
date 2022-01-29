@@ -61,17 +61,17 @@ public class PlayerControls_Script : MonoBehaviour
 
     public void changeColor(bool rBool)
     {
-        
+
         foreach (var i in noColorList)
         {
             i.GetComponent<SpriteRenderer>().enabled = rBool;
         }
-       
+
         foreach (var b in colorList)
         {
             b.GetComponent<SpriteRenderer>().enabled = !rBool; ;
         }
-
+    }
     bool IsGrounded(){
         RaycastHit2D rayCastHit=Physics2D.Raycast(character.bounds.center,Vector2.down, character.bounds.extents.y+0.1f, layerMask);
         if(rayCastHit.collider == null){
@@ -81,6 +81,5 @@ public class PlayerControls_Script : MonoBehaviour
         };
 
     }
-
 
 }
