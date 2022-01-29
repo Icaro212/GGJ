@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
 
+    [HideInInspector]
+    public GameObject[] colorList;
+    [HideInInspector]
+    public GameObject[] noColorList;
     void Awake()
     {
         if (instance == null)
@@ -15,6 +19,18 @@ public class GameManager : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        noColorList = GameObject.FindGameObjectsWithTag("noColor");
+
+        colorList = GameObject.FindGameObjectsWithTag("color");
+
+        foreach (var b in colorList)
+        {
+            b.SetActive(false);
+        }
     }
     public void ChangeScene(string sc)
     {
@@ -28,5 +44,5 @@ public class GameManager : MonoBehaviour
         }
     }
 
- 
+    
 }
