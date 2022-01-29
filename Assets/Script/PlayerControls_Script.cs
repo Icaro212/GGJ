@@ -73,6 +73,7 @@ public class PlayerControls_Script : MonoBehaviour
             j.SetActive(rBool);
         }
 
+        GameManager.instance.stateColor=!rBool;
     }
     bool IsGrounded(){
         RaycastHit2D rayCastHit=Physics2D.Raycast(character.bounds.center,Vector2.down, character.bounds.extents.y+0.1f, layerMask);
