@@ -6,6 +6,7 @@ TagManager:
   tags:
   - noColor
   - color
+  - Fairy
   layers:
   - Default
   - TransparentFX
