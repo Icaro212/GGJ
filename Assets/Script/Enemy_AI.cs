@@ -26,7 +26,6 @@ public class Enemy_AI : MonoBehaviour
             
         }
         
-
     }
     
 
@@ -38,6 +37,9 @@ public class Enemy_AI : MonoBehaviour
         {
             //Cuando el enemigo toca al jugador este se muere, WIP
             GameManager.instance.ChangeScene("");
+            
         };
     }
+
+    
 }

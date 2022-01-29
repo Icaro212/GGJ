@@ -19,6 +19,8 @@ public class PlayerControls_Script : MonoBehaviour
 
     GameObject[] colorList;
 
+    GameObject[] fairyList;
+
     void Start(){
         rb=GetComponent<Rigidbody2D>();
         character=GetComponent<CapsuleCollider2D>();
@@ -26,6 +28,7 @@ public class PlayerControls_Script : MonoBehaviour
 
         noColorList = GameManager.instance.noColorList;
         colorList = GameManager.instance.colorList;
+        fairyList= GameManager.instance.fairyList;
     }
 
     
@@ -64,6 +67,13 @@ public class PlayerControls_Script : MonoBehaviour
         {
             b.SetActive(!rBool) ;
         }
+
+
+        foreach(var j in fairyList){
+            j.SetActive(rBool);
+        }
+
+        GameManager.instance.stateColor=!rBool;
     }
     bool IsGrounded(){
         RaycastHit2D rayCastHit=Physics2D.Raycast(character.bounds.center,Vector2.down, character.bounds.extents.y+0.1f, layerMask);
@@ -73,6 +83,15 @@ public class PlayerControls_Script : MonoBehaviour
             return true;
         };
 
+    }
+
+
+    void OnDestroy()
+    {
+        if (GameManager.instance.stateColor)
+        {
+            GameManager.instance.stateColor = false;
+        }
     }
 
 }

@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] colorList;
     [HideInInspector]
     public GameObject[] noColorList;
+
+    public GameObject[] fairyList;
     void Awake()
     {
         if (instance == null)
@@ -21,24 +23,34 @@ public class GameManager : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
+
     }
 
-    private void Start()
+    void OnEnable()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+
         noColorList = GameObject.FindGameObjectsWithTag("noColor");
 
         colorList = GameObject.FindGameObjectsWithTag("color");
+
+        fairyList = GameObject.FindGameObjectsWithTag("Fairy");
 
         foreach (var b in colorList)
         {
             b.SetActive(false);
         }
     }
+
+
     public void ChangeScene(string sc)
     {
-        if (sc == "")
-        {
+        if (sc == ""){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            GameManager.instance.Awake();
         }
         else
         {
@@ -50,8 +62,11 @@ public class GameManager : MonoBehaviour
             {
                 Application.Quit();
             };
-        }
+    }
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    
 }
+
