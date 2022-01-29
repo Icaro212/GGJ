@@ -52,9 +52,36 @@ public class PlayerControls_Script : MonoBehaviour
         }
     }
 
+    List<string> Lista_Escenarios = new List<string>()
+        {
+            //Renombrar a los GameStates actuales, de manera apilada
+            "carrot",
+            "fox",
+            "explorer"
+        };
+
+    public void WinCond()
+    {
+        Lista_Escenarios.RemoveAt(Lista_Escenarios.Count -1);
+        string victoria=Lista_Escenarios[Lista_Escenarios.Count-1];
+        if (victoria != null)
+        {
+            GameManager.instance.ChangeScene(victoria);
+        }
+        else
+        {
+            GameManager.instance.ChangeScene("u WIn");//rellenar con el nombre de pila
+        }
+    }
+
+
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.CompareTag("Fairy")){
             StartCoroutine(takeFairy());
+        }
+        if (other.gameObject.CompareTag("Win"))
+        {
+            WinCond();
         }
     }
 
