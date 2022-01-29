@@ -68,6 +68,7 @@ public class PlayerControls_Script : MonoBehaviour
             b.SetActive(!rBool) ;
         }
 
+
         foreach(var j in fairyList){
             j.SetActive(rBool);
         }
