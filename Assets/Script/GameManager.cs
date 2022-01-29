@@ -24,6 +24,15 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+
         noColorList = GameObject.FindGameObjectsWithTag("noColor");
 
         colorList = GameObject.FindGameObjectsWithTag("color");
@@ -36,26 +45,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        
-    }
+
     public void ChangeScene(string sc)
     {
         if (sc == ""){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            // Start();
+            GameManager.instance.Awake();
         }
         else{
             SceneManager.LoadScene(sc);
+            
         }
     }
-
-    void OnDestroy()
+    void OnDisable()
     {
-       if(GameManager.instance.stateColor ) 
-       {
-        GameManager.instance.stateColor = false;
-       }
+        Debug.Log("OnDisable");
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+
 }
+

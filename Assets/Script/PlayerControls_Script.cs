@@ -85,4 +85,13 @@ public class PlayerControls_Script : MonoBehaviour
 
     }
 
+
+    void OnDestroy()
+    {
+        if (GameManager.instance.stateColor)
+        {
+            GameManager.instance.stateColor = false;
+        }
+    }
+
 }
