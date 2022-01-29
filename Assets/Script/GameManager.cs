@@ -42,7 +42,14 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(sc);
+            if (sc != "Exit")
+            {
+                SceneManager.LoadScene(sc);
+            }
+            else
+            {
+                Application.Quit();
+            };
         }
     }
 
