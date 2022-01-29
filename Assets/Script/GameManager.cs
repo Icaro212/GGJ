@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] colorList;
     [HideInInspector]
     public GameObject[] noColorList;
+
+    public GameObject[] fairyList;
     void Awake()
     {
         if (instance == null)
@@ -29,6 +31,8 @@ public class GameManager : MonoBehaviour
 
         colorList = GameObject.FindGameObjectsWithTag("color");
 
+        fairyList = GameObject.FindGameObjectsWithTag("Fairy");
+
         foreach (var b in colorList)
         {
             b.SetActive(false);
@@ -36,12 +40,10 @@ public class GameManager : MonoBehaviour
     }
     public void ChangeScene(string sc)
     {
-        if (sc == "")
-        {
+        if (sc == ""){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        else
-        {
+        else{
             SceneManager.LoadScene(sc);
         }
     }
