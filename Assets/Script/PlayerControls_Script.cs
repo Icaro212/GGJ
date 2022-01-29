@@ -33,15 +33,23 @@ public class PlayerControls_Script : MonoBehaviour
 
     
     void Update(){
+        if(Input.GetButton("Cancel")){
+            GameManager.instance.pause();
+            Debug.Log("Time will continued now!");
+            // GameManager.instance.resume();
+        }
+
+    }
+
+    void FixedUpdate(){
         float horizontal = Input.GetAxis("Horizontal");
-        Vector2 movement = new Vector2 (horizontal * speed * Time.fixedDeltaTime, rb.velocity.y);
+        Vector2 movement = new Vector2 (horizontal * speed, rb.velocity.y);
         if(horizontal != 0){
             rb.velocity = movement;
         }
         if(Input.GetButton("Jump") && IsGrounded() ){
-            rb.AddForce(new Vector2(movement.x, (movement.y + jumpforce) * Time.fixedDeltaTime), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(movement.x, (movement.y + jumpforce)), ForceMode2D.Impulse);
         }
-
     }
 
     void OnTriggerEnter2D(Collider2D other){
