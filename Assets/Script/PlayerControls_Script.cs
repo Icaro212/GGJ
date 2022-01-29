@@ -24,8 +24,8 @@ public class PlayerControls_Script : MonoBehaviour
         character=GetComponent<CapsuleCollider2D>();
 
 
-        noColorList = GameObject.FindGameObjectsWithTag("noColor");
-        colorList = GameObject.FindGameObjectsWithTag("color");
+        noColorList = GameManager.instance.noColorList;
+        colorList = GameManager.instance.colorList;
     }
 
     
@@ -62,12 +62,14 @@ public class PlayerControls_Script : MonoBehaviour
 
     public void changeColor(bool rBool){
 
-        foreach (var i in noColorList){
-            i.GetComponent<SpriteRenderer>().enabled = rBool;
+        foreach (var i in noColorList)
+        {
+            i.SetActive(rBool);
         }
 
-        foreach (var b in colorList){
-            b.GetComponent<SpriteRenderer>().enabled = !rBool; ;
+        foreach (var b in colorList)
+        {
+            b.SetActive(!rBool) ;
         }
     }
     bool IsGrounded(){
