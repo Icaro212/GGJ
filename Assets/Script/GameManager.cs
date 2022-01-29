@@ -48,18 +48,25 @@ public class GameManager : MonoBehaviour
 
     public void ChangeScene(string sc)
     {
-        if (sc == ""){
+        if (sc == "")
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             GameManager.instance.Awake();
         }
-        else{
-            SceneManager.LoadScene(sc);
-            
+        else
+        {
+            if (sc != "Exit")
+            {
+                SceneManager.LoadScene(sc);
+            }
+            else
+            {
+                Application.Quit();
+            };
         }
     }
     void OnDisable()
     {
-        Debug.Log("OnDisable");
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
