@@ -7,6 +7,8 @@ public class Enemy_AI : MonoBehaviour
     public float speed = 1;
     public Rigidbody2D rb;
     public float dir = 1;
+    public float frameNumber;
+    public float Timelimit = 1000;
 
     void Start()
     {
@@ -18,6 +20,15 @@ public class Enemy_AI : MonoBehaviour
     {
         if (GameManager.instance.stateColor == true)
         {
+            if (frameNumber >= Timelimit)
+            {
+                dir = -(dir);
+                frameNumber = 0;
+            }
+            else
+            {
+                frameNumber = frameNumber + 1;
+            };
             rb.velocity = new Vector2(dir * speed, rb.velocity.y);
         }
         else
@@ -26,16 +37,15 @@ public class Enemy_AI : MonoBehaviour
             
         }
         
+
     }
     
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        dir = -(dir);
 
         if (other.gameObject.tag == "Player" && GameManager.instance.stateColor == true)
         {
-            //Cuando el enemigo toca al jugador este se muere, WIP
             GameManager.instance.ChangeScene("");
             
         };
