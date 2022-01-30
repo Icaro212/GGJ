@@ -55,9 +55,8 @@ public class PlayerControls_Script : MonoBehaviour
     List<string> Lista_Escenarios = new List<string>()
         {
             //Renombrar a los GameStates actuales, de manera apilada
-            "carrot",
-            "fox",
-            "explorer"
+            "Level2",
+            "Level1",
         };
 
     public void WinCond()
