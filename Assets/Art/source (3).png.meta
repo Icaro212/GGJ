@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: 933a0cc127edcdc418b85c3497cbbf81
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -5698864666347747106
+    second: source (3)_0
+  - first:
+      213: -4222917126062895019
+    second: source (3)_1
+  - first:
+      213: 4416582777327585969
+    second: source (3)_2
+  - first:
+      213: -1728759567631143445
+    second: source (3)_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -101,7 +113,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: source (3)_0
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 211
+        width: 180
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed84153a7c099e0b0800000000000000
+      internalID: -5698864666347747106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: source (3)_1
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 211
+        width: 180
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5509b117f3f2565c0800000000000000
+      internalID: -4222917126062895019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: source (3)_2
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 31
+        width: 180
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ba08bbc2aada4d30800000000000000
+      internalID: 4416582777327585969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: source (3)_3
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 31
+        width: 180
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beda94525563208e0800000000000000
+      internalID: -1728759567631143445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
