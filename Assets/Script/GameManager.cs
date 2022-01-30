@@ -18,6 +18,13 @@ public class GameManager : MonoBehaviour
     public GameObject[] noColorList;
 
     public GameObject[] fairyList;
+
+    public AudioClip colorMusic;
+
+    public AudioClip noColorMusic;
+
+    public AudioClip changeToColor;
+
     void Awake()
     {
         if (instance == null)
