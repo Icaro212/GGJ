@@ -94,8 +94,12 @@ public class PlayerControls_Script : MonoBehaviour
 
     public IEnumerator takeFairy(){
         changeColor(false);
+        playTransistion();
+        yield return new WaitForSeconds(1f);
+        changeAudio();
         yield return new WaitForSeconds(colorTime);
         changeColor(true);
+        changeAudio();
     }
 
     public void changeColor(bool rBool){
@@ -117,6 +121,44 @@ public class PlayerControls_Script : MonoBehaviour
 
         GameManager.instance.stateColor=!rBool;
     }
+    public void playTransistion(){
+        GameObject Camera =GameObject.FindGameObjectsWithTag("MainCamera")[0];//Size 1 only one camera
+        AudioSource audio=Camera.GetComponent<AudioSource>();
+        audio.clip=GameManager.instance.changeToColor;
+        audio.loop=false;
+        audio.Play();
+        
+    }
+
+    public void fadeOut(){
+        GameObject Camera =GameObject.FindGameObjectsWithTag("MainCamera")[0];//Size 1 only one camera
+        AudioSource audio=Camera.GetComponent<AudioSource>();
+        float volumenIncial=audio.volume;
+        for(int i=0;i<5;i++){
+            audio.volume=audio.volume - (float) 0.2;
+        }
+    }
+
+
+    public void changeAudio(){
+        bool color = GameManager.instance.stateColor;
+        GameObject Camera =GameObject.FindGameObjectsWithTag("MainCamera")[0];//Size 1 only one camera
+        AudioSource audio=Camera.GetComponent<AudioSource>();
+        if(color){           
+            audio.clip=GameManager.instance.colorMusic;
+            audio.Play();
+            audio.loop=true;
+
+        }else{
+ 
+            audio.clip=GameManager.instance.noColorMusic;
+            audio.volume=(float) 1.0;
+            audio.Play();
+            audio.loop=true;
+        }
+
+    }
+
     bool IsGrounded(){
         RaycastHit2D rayCastHit=Physics2D.Raycast(character.bounds.center,Vector2.down, character.bounds.extents.y+0.1f, layerMask);
         if(rayCastHit.collider == null){
