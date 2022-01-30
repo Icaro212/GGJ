@@ -34,6 +34,7 @@ public class Enemy_AI : MonoBehaviour
         else
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
+
             
         }
         
