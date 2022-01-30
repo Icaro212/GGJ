@@ -52,5 +52,11 @@ public class Enemy_AI : MonoBehaviour
         };
     }
 
+    void OnCollisionEnter2D(Collision2D other){
+        if(other.gameObject.name.Equals("LavaFloor")){
+            Destroy(gameObject);
+        }
+    }
+
     
 }
