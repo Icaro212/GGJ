@@ -79,7 +79,7 @@ public class PlayerControls_Script : MonoBehaviour
         if(other.gameObject.CompareTag("Fairy")){
             StartCoroutine(takeFairy());
         }
-        if (other.gameObject.CompareTag("Win"))
+        if (other.gameObject.name.Equals("DoorWin"))
         {
             WinCond();
         }
