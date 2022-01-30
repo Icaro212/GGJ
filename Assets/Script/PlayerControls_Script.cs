@@ -69,7 +69,7 @@ public class PlayerControls_Script : MonoBehaviour
         }
         else
         {
-            GameManager.instance.ChangeScene("u WIn");//rellenar con el nombre de pila
+            GameManager.instance.ChangeScene("Main menu");
         }
     }
 
