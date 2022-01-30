@@ -35,7 +35,6 @@ public class Enemy_AI : MonoBehaviour
 
         if (other.gameObject.tag == "Player" && GameManager.instance.stateColor == true)
         {
-            //Cuando el enemigo toca al jugador este se muere, WIP
             GameManager.instance.ChangeScene("");
             
         };

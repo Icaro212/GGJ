@@ -8,6 +8,7 @@ TagManager:
   - color
   - Fairy
   - PauseMenu
+  - Win
   layers:
   - Default
   - TransparentFX
