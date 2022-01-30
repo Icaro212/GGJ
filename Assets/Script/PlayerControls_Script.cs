@@ -85,6 +85,13 @@ public class PlayerControls_Script : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D other){
+        if(other.gameObject.name.Equals("LavaFloor")){
+            Destroy(gameObject);
+            GameManager.instance.ChangeScene("");
+        }
+    }
+
     public IEnumerator takeFairy(){
         changeColor(false);
         yield return new WaitForSeconds(colorTime);

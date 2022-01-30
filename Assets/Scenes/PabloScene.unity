@@ -269,7 +269,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70290202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.71, y: -3.11, z: 0}
+  m_LocalPosition: {x: -1.89, y: 1.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -632,12 +632,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  speed: 200
+  speed: 3
   character: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 64
-  jumpforce: 35
+  jumpforce: 3.5
   colorCheck: 0
   colorTime: 2
 --- !u!50 &1444115280
